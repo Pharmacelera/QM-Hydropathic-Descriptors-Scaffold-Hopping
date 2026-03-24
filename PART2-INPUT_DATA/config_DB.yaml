@@ -1,0 +1,79 @@
+# PharmScreen multiexperiment configuration file
+# Common configuration parameters for all experiments should be defined inside the static block
+static:
+  URI: "http://localhost"
+  PORT: "8080"
+  UPLOAD_S3: false
+  MODEL_NAME: "Part2B"
+
+# Specific experiment parameters must be defined in the experiments block
+# As many experiments as experiment blocks will be launched. Each experiment
+# block will be named experiment#(number) and will include the specific configuration
+# of that experiment
+
+# STEP1: Reference file preparation
+# Adjust input file name for reference for each of the available references. For example, for "BACE1_REFs_DB.sdf":
+experiment1:
+  name: "part2b_step1_ref_prep"
+  endpoint: "pharmscreen/launch"
+  logp: "mst"
+  ligprep: "true"
+  files:
+    input: BACE1_REFs_DB.sdf
+    
+# STEP2: Molecule library preparation
+# Adjust input file name for the library for each of the available scaffold libraries. For example, for "BACE1_actives_decoys_align_by_docking.sdf":
+experiment2:
+  name: "part2b_step2_lib_prep"
+  endpoint: "pharmscreen/launch"
+  logp: "mst"  
+  ligprep: "true"
+  genconf: "true"
+  energy: "10"
+  minimize: "mmff"
+  files:
+    input: BACE1_actives_decoys_align_by_docking.sdf
+
+# STEP3: Alignment to the reference ligands
+experiment3:
+  name: "part2b_step3_alignment"
+  endpoint: "pharmscreen/launch"
+  charges: "userdefined"
+  logp: "userdefined"
+  align: "field"
+  printnmols: "all"
+  files:
+    input: "tmp/part2b_step2_lib_prep.sdf"
+    ref: "tmp/part2b_step1_ref_prep.sdf"
+
+# STEP4: Re-scoring "in place" using weights of 0.25, 0.45 and 0.30 for logPele, logPcav, and HB fields, respectively
+experiment4:
+  name: "part2b_step4_rescoring1"
+  endpoint: "pharmscreen/launch"
+  logp: "userdefined"
+  align: "skip"
+  field1: "hydroele"
+  field2: "hydrocav"
+  field3: "hbond"
+  wf1: "0.25"
+  wf2: "0.45"
+  wf3: "0.30"
+  files:
+    input: "tmp/part2b_step3_alignment.sdf"
+    ref: "tmp/part2b_step1_ref_prep.sdf"
+
+experiment5:
+  name: "experiment_case1_4_rescoring2"
+  endpoint: "pharmscreen/launch"
+  logp: "userdefined"
+  align: "skip"
+  field1: "hydroele"
+  field2: "hydrocav"
+  field3: "hbond"
+  wf1: "0.25"
+  wf2: "0.45"
+  wf3: "0.30"
+  tversky: "true"
+  files:
+    input: "tmp/part2b_step3_alignment.sdf"
+    ref: "tmp/part2b_step1_ref_prep.sdf"
