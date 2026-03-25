@@ -63,7 +63,7 @@ experiment4:
     ref: "tmp/part2b_step1_ref_prep.sdf"
 
 experiment5:
-  name: "experiment_case1_4_rescoring2"
+  name: "part2b_step4_rescoring2"
   endpoint: "pharmscreen/launch"
   logp: "userdefined"
   align: "skip"
