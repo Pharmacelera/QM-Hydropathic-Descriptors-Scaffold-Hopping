@@ -26,7 +26,7 @@ For each subfolder:
 
 ## PART2. Validation of isofunctional fragments
 
-Relevant input/output data related to BACE1, DPP4 and PARP1 systems considered for the exploration of the isofunctional fragments.
+Relevant input/output data related to BACE1, DPP4, PARP1, HDAC8, and TRP1 systems considered for the exploration of the isofunctional fragments.
 
 Folder: "BACE1"
 Content:
@@ -51,6 +51,22 @@ Content:
 - PARP1_glide-grid_4pjt-glide-grid.zip: grid file used for docking with Glide.
 - PARP1_AB.csv: output similarity scores by reference (SC_ref0, SC_ref1) for the 77 actives + 5,000 decoys obtained from rescoring with Tanimoto, Tversky and Carbó metrics for alignment-based (AB) protocol. Canonical smiles are also included.
 - PARP1_DB.csv: output similarity scores by reference (SC_ref0, SC_ref1) for the 77 actives + 1,517 decoys obtained from rescoring with Tanimoto, Tversky and Carbó metrics for docking-based (DB) protocol and docking scores (kcal/mol). Canonical smiles are also included.
+
+Folder: “HDAC8”
+Content:
+- HDAC8_3D-overlays_actives.pse: 3D overlays of the 16 active fragment for HDAC8 from alignment-based (AB) and docking-based (DB) protocols. 3D structure of HDAC8 (PDB code: 6hu2) and templates SC_ref0 and SC_ref1.
+- HDAC8_decoys.smi: smiles codes for the 5,000 decoys extracted from DUD-E for HDAC8.
+- HDAC8_glide-grid_6hu2-glide-grid.zip: grid file used for docking with Glide.
+- HDAC8_AB.csv: output similarity scores by reference (SC_ref0, SC_ref1) for the 16 actives + 5,000 decoys obtained from rescoring with Tanimoto, Tversky and Carbó metrics for alignment-based (AB) protocol. Canonical smiles are also included.
+- HDAC8_DB.csv: output similarity scores by reference (SC_ref0, SC_ref1) for the 16 actives + 4,328 decoys obtained from rescoring with Tanimoto, Tversky and Carbó metrics for docking-based (DB) protocol and docking scores (kcal/mol). Canonical smiles are also included.
+
+Folder: “TRP1”
+Content:
+- TRP1_3D-overlays_actives.pse: 3D overlays of the 22 active fragment for TRP1 from alignment-based (AB) and docking-based (DB) protocols. 3D structure of TRP1 (PDB code: 1gi4) and templates SC_ref0 and SC_ref1.
+- TRP1_decoys.smi: smiles codes for the 5,000 decoys extracted from DUD-E for TRP1.
+- TRP1_glide-grid_1gi4-glide-grid.zip: grid file used for docking with Glide.
+- TRP1_AB.csv: output similarity scores by reference (SC_ref0, SC_ref1) for the 22 actives + 5,000 decoys obtained from rescoring with Tanimoto, Tversky and Carbó metrics for alignment-based (AB) protocol. Canonical smiles are also included.
+- TRP1_DB.csv: output similarity scores by reference (SC_ref0, SC_ref1) for the 22 actives + 4,792 decoys obtained from rescoring with Tanimoto, Tversky and Carbó metrics for docking-based (DB) protocol and docking scores (kcal/mol). Canonical smiles are also included.
 
 ## Quick Guide to reproduce experiments
 
